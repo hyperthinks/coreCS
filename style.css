@@ -39,3 +39,8 @@
 .button-future:hover::before {
     opacity: 1;
 }
+
+.button-future:active {
+    transform: translateY(3px);
+    transition: all .1s ease-in-out 0s;
+}
