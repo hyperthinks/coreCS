@@ -8,7 +8,7 @@ Down the line, **CoreCS** can be expanded to implement a level progression or in
 
 ## Getting Started
 
-To get **Streamline** up and running:
+To get **CoreCS** up and running:
 1. ...
 2. ...
 
