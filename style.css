@@ -66,3 +66,11 @@
 .hero-foot {
     padding: 15px;
 }
+
+.hidden {
+    display: none;
+}
+
+li.is-active {
+    color: black;
+}
