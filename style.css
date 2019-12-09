@@ -1,4 +1,5 @@
 .button-future {
+    /* define button */
     min-width: 200px;
     min-height: 60px;
     font-family: sans-serif;
@@ -17,6 +18,7 @@
 
 .button-future::before,
 .button-future:focus {
+    /* define outline to be showed */
     content: '';
     border-radius: 1000px;
     min-width: calc(200px + 20px);
@@ -32,15 +34,35 @@
 }
 
 .button-future:hover {
+    /* float when hovering */
     color: #313133;
     transform: translateY(-6px);
 }
 
 .button-future:hover::before {
+    /* show outline when hovering */
     opacity: 1;
 }
 
 .button-future:active {
+    /* Dunk when clicked */
     transform: translateY(3px);
     transition: all .1s ease-in-out 0s;
+}
+
+#user-display {
+    color: rgba(129, 230, 217, 1);
+    font-weight: 900;
+    font-size: 25px;
+    letter-spacing: .7px;
+}
+
+#quote {
+    font-weight: 900;
+    font-size: large;
+    letter-spacing: 2px;
+}
+
+.hero-foot {
+    padding: 15px;
 }

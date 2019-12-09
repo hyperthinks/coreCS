@@ -8,7 +8,26 @@
 </head>
 
 <body>
-    <section class="hero is-dark is-fullheight">
+    <nav class="navbar is-dark">
+        <div class="navbar-start">
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" id="user-display">
+                    Username
+                </a>
+                <div class="navbar-dropdown is-boxed">
+                    <a class="navbar-item">
+                          Logout
+                        </a>
+                    <hr class="navbar-divider">
+                    <a class="navbar-item">
+                          Delete Account
+                        </a>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+    <section class="hero is-dark is-fullheight-with-navbar">
         <div class="hero-body ">
             <div class="container has-text-centered">
                 <button class="button-future" id="start">
@@ -16,11 +35,27 @@
 				</button>
                 <br/><br/><br/><br/>
                 <p class="subtitle" id="quote">
-                    ...Insert quote that cycles very ~20 clicks...
+                    ...Insert quote that cycles every ~20 clicks...
                 </p>
             </div>
         </div>
+        <div class="hero-foot">
+            <div class="tabs is-centered is-toggle is-toggle-rounded">
+                <div class="container" id="nav-tabs">
+                    <ul>
+                        <li><a>Leaderboard</a></li>
+                        <li><a>Stats</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
+    <section class="section">
+        <div class="container">
+
+        </div>
+    </section>
+
 </body>
 
 </html>
