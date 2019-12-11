@@ -63,6 +63,13 @@
     letter-spacing: 2px;
 }
 
+#click-count {
+    color: rgba(129, 230, 217, 1);
+    font-weight: 900;
+    font-size: large;
+    letter-spacing: 2px;
+}
+
 .hero-foot {
     padding: 15px;
 }

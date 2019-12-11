@@ -10,7 +10,7 @@
 
 <body>
     <nav class="navbar is-dark">
-        <div class="navbar-start">
+        <div class="navbar-brand">
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" id="user-display">
                     Username
@@ -32,9 +32,13 @@
         <div class="hero-body ">
             <div class="container has-text-centered">
                 <button class="button-future" id="start">
-					CoreCS
+                    <span>CoreCS</span>
+                    <span id="click-count"></span>
 				</button>
-                <br/><br/><br/><br/>
+                <br/><br/><br/>
+                <p class="subtitle" id="click-count">
+                    dunks: 0
+                </p>
                 <p class="subtitle" id="quote">
                     ...Insert quote that cycles every ~20 clicks...
                 </p>
