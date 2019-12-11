@@ -50,8 +50,8 @@
     transition: all .1s ease-in-out 0s;
 }
 
-#user-display {
-    color: rgba(129, 230, 217, 1);
+.top-left-item {
+    color: rgba(129, 230, 217, 1) !important;
     font-weight: 900;
     font-size: 25px;
     letter-spacing: .7px;
