@@ -2,16 +2,6 @@ $(document).ready(function() {
     randomQuote();
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:3000/user/clicks/count',
-        beforeSend: function(xhr) {
-            xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem('jwt')}`);
-        },
-        success: function(data, status, xhr) {
-            $("#dunk-count").text(data.result);
-        }
-    });
-    $.ajax({
-        type: 'GET',
         url: 'http://localhost:3000/account/status',
         beforeSend: function(xhr) {
             xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem('jwt')}`);
@@ -22,6 +12,19 @@ $(document).ready(function() {
         error: function(xhr, status, error) {
             showLoggedOut();
         },
+        async: false
+    });
+    $.ajax({
+        type: 'GET',
+        url: `http://localhost:3000/private/clicks/${$("#user-display").text().trim()}/count`,
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem('jwt')}`);
+        },
+        success: function(data, status, xhr) {
+            console.log(data.result);
+            $("#dunk-count").text(data.result);
+        },
+        async: false
     });
 });
 
@@ -35,13 +38,13 @@ function showLoggedOut() {
     `);
 }
 async function updateCount(c) {
-    return await axios.post(`http://localhost:3000/user/clicks/`, {
+    return await axios.post(`http://localhost:3000/private/clicks/${$("#user-display").text()}/`, {
         data: { count: c }
-    }, { headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` } })
+    }, { headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` } });
 }
 
 async function resetClicks() {
-    return await axios.delete(`http://localhost:3000/user/clicks`, {
+    return await axios.delete(`http://localhost:3000/private/clicks/${$("#user-display").text()}`, {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` }
     });
 }
