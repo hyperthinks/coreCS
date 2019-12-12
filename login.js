@@ -26,7 +26,8 @@ $("#login-button").click(function() {
             pass: $("#password").val()
         },
         success: function(data) {
-            console.log(data.jwt);
+            localStorage.setItem('jwt', data.jwt);
+            window.location.href = "index.html";
         },
         error: function(xhr, status, error) {
             inject_error_message(false);

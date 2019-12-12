@@ -1,3 +1,37 @@
+$(document).ready(function() {
+    randomQuote();
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/user/clicks/count',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem('jwt')}`);
+        },
+        success: function(data, status, xhr) {
+            $("#dunk-count").text(data.result);
+        }
+    });
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/account/status',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', `Bearer ${localStorage.getItem('jwt')}`);
+        },
+        success: function(data, status, xhr) {
+            $("#user-display").text(data.user.name);
+        }
+    });
+});
+
+async function updateCount(c) {
+    return await axios.post(`http://localhost:3000/user/clicks/`, {
+        data: { count: c }
+    }, { headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` } })
+}
+
+$('#logout').click(function() {
+    localStorage.clear();
+});
+
 $("#leaderboard-button").click(function() {
     $("#stats-button").removeClass('is-active');
     $(this).addClass('is-active');
@@ -16,6 +50,13 @@ $("#stats-button").click(function() {
     $('html,body').animate({
         scrollTop: $("#stats").offset().top
     }, 1200);
+});
+
+$("#the-button").click(function() {
+    let curr_clicks = parseInt($("#dunk-count").text());
+    $("#dunk-count").text(++curr_clicks);
+    (async() => { await updateCount(curr_clicks); })();
+    return false;
 });
 
 function autocomplete(inp, arr) {
