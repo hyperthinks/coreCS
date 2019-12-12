@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
-<body>
+<body onload="randomQuote()">
     <nav class="navbar is-dark">
         <div class="navbar-brand">
             <div class="navbar-item has-dropdown is-hoverable">
@@ -39,9 +39,7 @@
                 <p class="subtitle" id="click-count">
                     dunks: 0
                 </p>
-                <p class="subtitle" id="quote">
-                    ...Insert quote that cycles every ~20 clicks...
-                </p>
+                <p class="subtitle" id="quote"></p>
             </div>
         </div>
         <div class="hero-foot">
