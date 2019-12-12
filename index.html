@@ -60,23 +60,17 @@
             <h1 class="title">Leaderboard</h1>
             <h2 class="subtitle">This is a work in progress</h2>
         </div>
-
         <div class="container">
-
-            <section>
-                <!--Make sure the form has the autocomplete function switched off:-->
-                <form autocomplete="off" action="/action_page.php">
-                    <div class="autocomplete" style="width:300px;">
-                        <input id="myInput" type="text" name="myCountry" placeholder="Country">
-                    </div>
-                    <input type="submit">
-                </form>
-            </section>
-
+            <form autocomplete="off" action="/action_page.php">
+                <div class="autocomplete" style="width:300px;">
+                    <input id="myInput" type="text" name="myCountry" placeholder="Country">
+                </div>
+                <input type="submit">
+            </form>
             <script>
                 autocomplete(document.getElementById("myInput"), countries);
             </script>
-
+        </div>
     </section>
     </div>
     </section>
