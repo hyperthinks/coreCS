@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    randomQuote();
     $.ajax({
         type: 'GET',
         url: 'http://localhost:3000/account/status',
