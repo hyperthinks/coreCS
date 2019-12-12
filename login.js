@@ -37,21 +37,30 @@ $("#login-button").click(function() {
     return false;
 });
 
+$('#guest-button').click(function() {
+    console.log('hi');
+    window.location.href = "index.html";
+    return false;
+});
+
 function inject_error_message(new_user) {
     $("#account-error").remove();
     $("#account-signup").remove();
-    let html = `
-        <article id="account-error" class="message is-danger is-small">
-            <div class="message-header">
-                <p>Account error</p>
-            </div>
-            <div class="message-body">
-                ${new_user ? "Username already in use." : "Incorrect username or password."}
-            </div>
-        </article>
-    `;
-
-    $("#login-box").prepend(html);
+    $("#login-box").prepend(`
+            <article id="account-error" class="message is-danger is-small">
+                <div class="message-header">
+                    <p>Account error</p>
+                </div>
+                <div class="message-body">
+                    ${($("#username").val() === '' || $("#password").val() === '') ?
+                        "Missing username or password." :
+                        new_user ? 
+                            "Username already in use." : 
+                            "Incorrect username or password."
+                    }
+                </div>
+            </article>
+    `);
 }
 
 function inject_signup_message() {

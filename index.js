@@ -18,18 +18,44 @@ $(document).ready(function() {
         },
         success: function(data, status, xhr) {
             $("#user-display").text(data.user.name);
-        }
+        },
+        error: function(xhr, status, error) {
+            showLoggedOut();
+        },
     });
 });
 
+function showLoggedOut() {
+    $("#user-display-box").replaceWith(`
+        <div class="navbar-item is-hoverable " id="user-display-box">
+            <a class="navbar-link top-left-item is-arrowless" href="login.html">
+                Login or Signup!
+            </a>
+        </div>
+    `);
+}
 async function updateCount(c) {
     return await axios.post(`http://localhost:3000/user/clicks/`, {
         data: { count: c }
     }, { headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` } })
 }
 
+async function resetClicks() {
+    return await axios.delete(`http://localhost:3000/user/clicks`, {
+        headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` }
+    });
+}
+
+$("#reset-clicks").click(function() {
+    (async() => { await resetClicks(); })();
+    $("#dunk-count").text('0');
+    return false;
+});
+
 $('#logout').click(function() {
     localStorage.clear();
+    showLoggedOut();
+    $("#dunk-count").text('0');
 });
 
 $("#leaderboard-button").click(function() {
