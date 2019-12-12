@@ -25,22 +25,27 @@
             <div class="container">
                 <div class="columns is-centered">
                     <div class="column is-narrow">
-                        <form class="box">
+                        <form class="box login">
                             <div class="field">
                                 <label class="label">Username</label>
                                 <div class="control">
-                                    <input type="text" placeholder="button_destroyer_99" class="input" required>
+                                    <input id="username" type="text" placeholder="button_destroyer_99" class="input" required>
                                 </div>
                             </div>
                             <div class="field">
                                 <label class="label">Password</label>
                                 <div class="control">
-                                    <input type="password" placeholder="*******" class="input" required>
+                                    <input id="password" type="password" placeholder="*******" class="input" required>
                                 </div>
                             </div>
                             <div class="field">
-                                <button class="button is-link">
+                                <button id="login-button" class="button is-link">
                                     Login
+                                </button>
+                            </div>
+                            <div class="field">
+                                <button id="signup-button" class="button is-primary">
+                                    Sign Up
                                 </button>
                             </div>
                         </form>
@@ -49,6 +54,7 @@
             </div>
         </div>
     </section>
+    <script src="login.js"></script>
 </body>
 
 </html>
